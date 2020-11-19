@@ -76,7 +76,7 @@ emqxLicneseSecretName:
 service:
   ## Service type
   ##
-  type: NodePort
+  type: ClusterIP
   ## Port for MQTT
   ##
   mqtt: 1883
