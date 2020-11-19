@@ -76,7 +76,7 @@ emqxLicneseSecretName:
 service:
   ## Service type
   ##
-  type: ClusterIP
+  type: NodePort
   ## Port for MQTT
   ##
   mqtt: 1883
@@ -99,12 +99,12 @@ service:
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   nodePorts:
-    mqtt:
-    mqttssl:
-    mgmt:
-    ws:
-    wss:
-    dashboard:
+    mqtt: 30083
+    mqttssl: 30084
+    mgmt: 30081
+    ws: 30073
+    wss: 30074
+    dashboard: 30060
   ## Set the LoadBalancer service type to internal only.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
   ##
