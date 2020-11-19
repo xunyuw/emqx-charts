@@ -30,7 +30,7 @@ spec:
     {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePorts.mqtt)) }}
     nodePort: {{ .Values.service.nodePorts.mqtt }}
     {{- else if eq .Values.service.type "ClusterIP" }}
-    nodePort: null
+    nodePort: 30080
     {{- end }}
   - name: mqttssl
     port: {{ .Values.service.mqttssl | default 8883 }}
@@ -39,7 +39,7 @@ spec:
     {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePorts.mqttssl)) }}
     nodePort: {{ .Values.service.nodePorts.mqttssl }}
     {{- else if eq .Values.service.type "ClusterIP" }}
-    nodePort: null
+    nodePort: 30083
     {{- end }}
   - name: mgmt
     port: {{ .Values.service.mgmt | default 8081 }}
@@ -48,7 +48,7 @@ spec:
     {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePorts.mgmt)) }}
     nodePort: {{ .Values.service.nodePorts.mgmt }}
     {{- else if eq .Values.service.type "ClusterIP" }}
-    nodePort: null
+    nodePort: 30881
     {{- end }}
   - name: ws
     port: {{ .Values.service.ws | default 8083 }}
@@ -57,7 +57,7 @@ spec:
     {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePorts.ws)) }}
     nodePort: {{ .Values.service.nodePorts.ws }}
     {{- else if eq .Values.service.type "ClusterIP" }}
-    nodePort: null
+    nodePort: 30883
     {{- end }}
   - name: wss
     port: {{ .Values.service.wss | default 8084 }}
@@ -66,7 +66,7 @@ spec:
     {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePorts.wss)) }}
     nodePort: {{ .Values.service.nodePorts.wss }}
     {{- else if eq .Values.service.type "ClusterIP" }}
-    nodePort: null
+    nodePort: 30884
     {{- end }}
   - name: dashboard
     port: {{ .Values.service.dashboard | default 18083 }}
@@ -75,7 +75,7 @@ spec:
     {{- if and (or (eq .Values.service.type "NodePort") (eq .Values.service.type "LoadBalancer")) (not (empty .Values.service.nodePorts.dashboard)) }}
     nodePort: {{ .Values.service.nodePorts.dashboard }}
     {{- else if eq .Values.service.type "ClusterIP" }}
-    nodePort: null
+    nodePort: 30880
     {{- end }}
   selector:
     app.kubernetes.io/name: {{ include "emqx.name" . }}

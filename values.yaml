@@ -99,12 +99,12 @@ service:
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   nodePorts:
-    mqtt:
-    mqttssl:
-    mgmt:
-    ws:
-    wss:
-    dashboard:
+    mqtt: 30080
+    mqttssl: 30083
+    mgmt: 30881
+    ws: 30883
+    wss: 30884
+    dashboard: 30880
   ## Set the LoadBalancer service type to internal only.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
   ##
